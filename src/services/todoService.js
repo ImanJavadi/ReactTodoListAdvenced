@@ -12,7 +12,7 @@ let fakeTodos = [
 ];
 // services/todoService.js
   
-  export const getTodos = () => Promise.resolve(fakeTodos);
+  export const getTodos = () =>{ return Promise.resolve(fakeTodos)};
   
   export const deleteTodo = (id) => {
     fakeTodos = fakeTodos.filter((todo) => todo.id !== id);

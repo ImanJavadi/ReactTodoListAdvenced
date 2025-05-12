@@ -1,4 +1,7 @@
-export default function TodoItem({ todo, onDelete, onUpdate }) {
+import React from "react";
+
+export const TodoItem=React.memo(({ todo, onDelete, onUpdate })=> {
+  console.log('TodoItem was rendered!')
     return (
       <li>
         <input
@@ -12,5 +15,5 @@ export default function TodoItem({ todo, onDelete, onUpdate }) {
         <button onClick={() => onDelete(todo.id)}>حذف</button>
       </li>
     );
-  }
+  });
   

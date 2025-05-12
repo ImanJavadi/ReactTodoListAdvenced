@@ -1,6 +1,8 @@
-import TodoItem from "./TodoItem";
+import React from "react";
+import {TodoItem} from "./TodoItem";
 
-export default function TodoList({ todos, onDelete, onUpdate }) {
+export const TodoList=React.memo(({ todos, onDelete, onUpdate })=> {
+  console.log('---TodoList was rendered!---');
   return (
     <ul>
       {todos.map((todo) => (
@@ -13,4 +15,4 @@ export default function TodoList({ todos, onDelete, onUpdate }) {
       ))}
     </ul>
   );
-}
+})

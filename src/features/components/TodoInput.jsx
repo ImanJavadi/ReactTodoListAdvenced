@@ -1,8 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-export default function TodoInput({ onAdd }) {
+export const TodoInput=React.memo(({ onAdd })=>{
   const [text, setText] = useState("");
-
+  console.log("TodoInput was rendered!");
   const submit = () => {
     if (!text.trim()) return;
     onAdd(text);
@@ -15,4 +15,4 @@ export default function TodoInput({ onAdd }) {
       <button onClick={submit}>افزودن</button>
     </div>
   );
-}
+})
