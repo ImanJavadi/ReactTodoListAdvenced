@@ -12,7 +12,7 @@ export const TodoItem=React.memo(({ todo, onDelete, onUpdate })=> {
         <span style={{ textDecoration: todo.completed ? "line-through" : "none" }}>
           {todo.title}
         </span>
-        <button onClick={() => onDelete(todo.id)}>حذف</button>
+        <button onClick={() => onDelete(todo.id)}>Delete</button>
       </li>
     );
   });

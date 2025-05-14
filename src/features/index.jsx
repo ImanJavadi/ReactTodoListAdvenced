@@ -1,12 +1,15 @@
 // features/todos/index.jsx
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useReducer, useState } from "react";
 import { getTodos, deleteTodo, updateTodo, addTodo } from "../services/todoService";
 import {TodoList} from "./components/TodoList";
 import {TodoInput} from "./components/TodoInput";
+import { TodoContext } from "./TodoContext";
+import { TodoReducer } from "./TodoReducer";
 
 export default function TodosFeature() {
   const [todos, setTodos] = useState([]);
-  console.log('container was rendered!');
+  const [state,dispach]=useReducer(TodoReducer,{color:'green'});
+  console.log(`container was rendered!`);
   useEffect(() => {
     getTodos().then(setTodos);
   }, []);
@@ -32,9 +35,11 @@ export default function TodosFeature() {
   },[]); 
 
   return (
-    <>
-      <TodoInput onAdd={handleAdd} />
-      <TodoList todos={todos} onDelete={handleDelete} onUpdate={handleUpdate} />
-    </>
+    
+      <TodoContext.Provider value={[todos,{state,dispach}]}>
+       <TodoInput  onAdd={handleAdd} />
+       <TodoList  onDelete={handleDelete} onUpdate={handleUpdate} />
+      </TodoContext.Provider>
   );
 }
+

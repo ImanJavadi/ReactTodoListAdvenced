@@ -12,7 +12,7 @@ export const TodoInput=React.memo(({ onAdd })=>{
   return (
     <div>
       <input value={text} onChange={(e) => setText(e.target.value)} />
-      <button onClick={submit}>افزودن</button>
+      <button onClick={submit}>َAdd</button>
     </div>
   );
 })
